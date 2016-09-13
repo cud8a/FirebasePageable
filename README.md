@@ -2,7 +2,7 @@
 
 Adds paging support to large Firebase nodes. The paging is based on a unique double value. An example for this value is the createdAt child in each list element which should be initialized with ServerValue.TIMESTAMP.
 
-Here is an example how to create an adapter:
+## Usage
 
     public class MyRecyclerAdapter extends FirebasePageableRecyclerAdapter implements FirebasePageableRecyclerListener
     {
