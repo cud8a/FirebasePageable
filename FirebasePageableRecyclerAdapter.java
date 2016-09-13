@@ -77,7 +77,6 @@ public abstract class FirebasePageableRecyclerAdapter extends RecyclerView.Adapt
         Log.d(TAG, "----------------------------------------------------");
 
         // scroll event for loading the next page
-
         if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
             final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
             recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
