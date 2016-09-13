@@ -7,7 +7,7 @@ This will create a pageabel adapter on the node 'feed' with a page size of 20 or
 
     public class MyRecyclerAdapter extends FirebasePageableRecyclerAdapter implements FirebasePageableRecyclerListener
     {
-      public MyRecyclerAdapter(RecyclerView recyclerView) {
-        super(recyclerView, this, "feed", 20, "createdAt");
-      }
+        public MyRecyclerAdapter(RecyclerView recyclerView) {
+            super(recyclerView, this, "feed", 20, "createdAt");
+        }
     }
