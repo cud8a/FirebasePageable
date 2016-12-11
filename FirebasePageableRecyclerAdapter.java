@@ -174,7 +174,7 @@ public abstract class FirebasePageableRecyclerAdapter extends RecyclerView.Adapt
         // we also listen too add events, so in case a new child is added to our path it will appear immediately at the top of the list
         ignoreAdd = true;
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(path);
-        queryForListeningToAdds = databaseReference.limitToLast(1);
+        queryForListeningToAdds = databaseReference.orderByChild(orderByChild).limitToLast(1);
         queryForListeningToAdds.addChildEventListener(this);
     }
 
