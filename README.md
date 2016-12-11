@@ -11,3 +11,7 @@ This will create a pageable adapter on the node 'feed' with a page size of 20 or
             super(recyclerView, listener, "feed", 20, "createdAt");
         }
     }
+    
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        ((MyModelViewHolder) holder).updateData((MyModel) pageables.get(position));
+    }
