@@ -5,13 +5,30 @@ Adds paging support to large Firebase nodes. The paging is based on a unique dou
 ## Usage
 This will create a pageable adapter on the node 'feed' with a page size of 20 ordered by the child node 'createdAt'
 
+    public class Feed implements FirebasePageableRecyclerAdapter.Pageable {
+        private double createdAt;
+
+        @Override
+        public double getKey() {
+            return createdAt;
+        }
+    }
+
     public class MyRecyclerAdapter extends FirebasePageableRecyclerAdapter
     {
         public MyRecyclerAdapter(RecyclerView recyclerView, FirebasePageableRecyclerListener listener) {
             super(recyclerView, listener, "feed", 20, "createdAt");
         }
+        
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            ((FeedViewHolder) holder).updateData((Feed) pageables.get(position));
+        }
+        
+        @Override
+        public Pageable getFromSnapshot(DataSnapshot snapshot) {
+            return snapshot.getValue(Feed.class);
+        }
     }
     
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ((MyModelViewHolder) holder).updateData((MyModel) pageables.get(position));
-    }
+    
