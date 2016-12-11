@@ -5,9 +5,9 @@ Adds paging support to large Firebase nodes. The paging is based on a unique dou
 ## Usage
 This will create a pageable adapter on the node 'feed' with a page size of 20 ordered by the child node 'createdAt'
 
-    public class MyRecyclerAdapter extends FirebasePageableRecyclerAdapter implements FirebasePageableRecyclerListener
+    public class MyRecyclerAdapter extends FirebasePageableRecyclerAdapter
     {
-        public MyRecyclerAdapter(RecyclerView recyclerView) {
-            super(recyclerView, this, "feed", 20, "createdAt");
+        public MyRecyclerAdapter(RecyclerView recyclerView, FirebasePageableRecyclerListener listener) {
+            super(recyclerView, listener, "feed", 20, "createdAt");
         }
     }
